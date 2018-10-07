@@ -1,9 +1,484 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
- <title></title>
-  <meta  http-equiv="refresh" content="0;url=http://zb.jii6.com"/>  
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>竹泊博客_个人博客网站</title>
+    <meta name="keywords" content="竹泊博客,个人博客,竹泊,散文" />
+    <meta name="description" content="竹泊博客是一个集成散文，热点，头条，笑话为一体的个人博客网站，致力于多样化的内容丰富的站点博客。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="360-site-verification" content="7d9c59a24ca8cdb0bc2835425cf8b27b" />
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/m.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easyfader.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+<script src="/public/static/main/js/modernizr.js"></script>
+<![endif]-->
+<style>
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+	text-align: center;
+}
+.alert {
+    padding: 1px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+</style>
+    <script>
+    window.onload = function() {
+        var oH2 = document.getElementsByTagName("h2")[0];
+        var oUl = document.getElementsByTagName("ul")[0];
+        oH2.onclick = function() {
+            var style = oUl.style;
+            style.display = style.display == "block" ? "none" : "block";
+            oH2.className = style.display == "block" ? "open" : ""
+        }
+    }
+    </script>
 </head>
 <body>
+<div class="alert alert-warning">
+	<a href="#" class="close" data-dismiss="alert">
+		&times;
+	</a>
+	<strong>通知,</strong>因阿里云域名原因，目前暂时使用临时域名。
+</div>
+    <header>
+        <!-- 头 -->
+        <div id="mnav">
+    <h2><span class="navicon"></span></h2>
+    <ul>
+      	<li><a title="网站首页" href="http://zb.iwentao.top">网站首页</a></li>
+      	<li><a title="关于我" href="http://zb.iwentao.top/about.html">关于我</a></li>
+      	<li><a title="散文欣赏" href="http://zb.jii6.com/article.asp">散文欣赏</a></li>
+      	<li><a title="开心一刻" href="http://zb.jii6.com/jock.asp">开心一刻</a></li>
+      	<li><a title="网址导航" href="http://zb.jii6.com/web.asp">网址导航</a></li>
+      	<li><a title="留言" href="http://zb.jii6.com/message.asp">留言</a></li>
+      	      		<li><a title="登录" href="http://zb.jii6.com/login.asp">登录</a></li>
+      	    </ul>
+</div>
+<div class="topnav">
+   	<nav>
+      	<ul>
+         <li><a title="网站首页" href="http://zb.iwentao.top">网站首页</a></li>
+      	<li><a title="关于我" href="http://zb.iwentao.top/about.html">关于我</a></li>
+          <li><a title="散文欣赏" href="http://zb.jii6.com/article.asp">散文欣赏</a></li>
+          <li><a title="开心一刻" href="http://zb.jii6.com/jock.asp">开心一刻</a></li>
+          <li><a title="网址导航" href="http://zb.jii6.com/web.asp">网址导航</a></li>
+          <li><a title="留言" href="http://zb.jii6.com/message.asp">留言</a></li>
+      		            <li><a title="登录" href="http://zb.jii6.com/login.asp">登录</a></li>
+                	</ul>
+    </nav>
+</div>
+        <!-- 头 -->
+    </header>
+    <article>
+        <div class="banner">
+            <div id="myban" class="fader">
+                <a href="http://zb.jii6.com/detail/toutiao/t.asp" title="实时热点头条">
+                  <img title="实时热点头条" alt="实时热点头条阅读" class="slide" src="images/banner01.jpg">
+                </a>
+                <a href="http://zb.jii6.com/detail/article/119.asp" title="美文">
+                  <img class="slide" title="美文" alt="美文欣赏" src="images/banner02.jpg">
+                </a>
+                <a href="http://zb.jii6.com/jock.asp" title="笑话，开心一刻">
+                  <img class="slide" title="笑话，开心一刻" alt="笑话，开心一刻" src="images/banner03.jpg">
+                </a>
+                <div class="fader_controls">
+                    <div class="page prev" data-target="prev">&lsaquo;</div>
+                    <div class="page next" data-target="next">&rsaquo;</div>
+                    <ul class="pager_list">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="newblogs">
+            <h2 class="hometitle">文章推荐</h2>
+            <ul>
+                                <li>
+                    <h3 class="blogtitle"><span><a  title="高并发请求的缓存设计策略" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/technology/13.asp" target="_blank" title="高并发请求的缓存设计策略" >高并发请求的缓存设计策略</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/technology/13.asp" target="_blank" title="高并发请求的缓存设计策略">                             <i><img alt="高并发请求的缓存设计策略" title="高并发请求的缓存设计策略" src="images/506b49.jpg"  /></i> </a></span>
+                        <p style="text-indent:2em;">1.为何需要缓存？在高并发请求时，为何我们频繁提到缓存技术？最直接的原因是，目前磁盘IO和网络IO相对于内存IO的成百上千倍的性能劣势。做个简单计算，如果我们需要某个数据，该数据从数据库磁盘读出来需要0.1s，从交换机传过来需要0....</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-09-21 16:22:30</span><span class="viewnum f_l">浏览（<a href="/">1309</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/technology/13.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                                <li>
+                    <h3 class="blogtitle"><span><a  title="PHP环境安全加固方案" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/technology/12.asp" target="_blank" title="PHP环境安全加固方案" >PHP环境安全加固方案</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/technology/12.asp" target="_blank" title="PHP环境安全加固方案">                             <i><img alt="PHP环境安全加固方案" title="PHP环境安全加固方案" src="images/506b49.jpg"  /></i> </a></span>
+                        <p style="text-indent:2em;">PHP应用部署后，开发者或者运维人员应该时刻关注PHP方面的漏洞消息，升级PHP版本，对PHP环境进行安全加固。本文将给大家介绍如何从WEB安全方面让你的网站更坚固更安全。1.启用 PHP 的安全模式PHP 环境提供的安全模式是一个...</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-09-03 00:43:02</span><span class="viewnum f_l">浏览（<a href="/">4251</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/technology/12.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                                <li>
+                    <h3 class="blogtitle"><span><a  title="jQuery实现的全选反选" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/technology/11.asp" target="_blank" title="jQuery实现的全选反选" >jQuery实现的全选反选</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/technology/11.asp" target="_blank" title="jQuery实现的全选反选">                             <i><img alt="jQuery实现的全选反选" title="jQuery实现的全选反选" src="images/506b49.jpg"  /></i> </a></span>
+                        <p style="text-indent:2em;">本文给大家分享一段基于jQuery的全选、反选和不选功能的代码，适用于网页多选后需要进行批量操作的场景（如批量删除等）。文章结合实例，代码简洁，基本覆盖选项选择操作的方方面面，希望可以帮到有需要的WEB爱好者。HTML我们的页面上有...</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-08-03 13:16:21</span><span class="viewnum f_l">浏览（<a href="/">4851</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/technology/11.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                                <li>
+                    <h3 class="blogtitle"><span><a  title="网站关键词怎么优化" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/technology/10.asp" target="_blank" title="网站关键词怎么优化" >网站关键词怎么优化</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/technology/10.asp" target="_blank" title="网站关键词怎么优化">                             <i><img alt="网站关键词怎么优化" title="网站关键词怎么优化" src="images/20180730183126.png"  /></i> </a></span>
+                        <p style="text-indent:2em;">&nbsp; &nbsp; &nbsp; 北京恒泰物华企业网站。从4月初恢复降权以来，百度一下子就把以前的排名变回来了，金属落水系统在首页第4，落水系统在首页第6，雨水管在首页第6，檐沟在第54名，天沟和檐沟是接下来我要做的两个主要...</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-07-15 02:04:28</span><span class="viewnum f_l">浏览（<a href="/">3983</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/technology/10.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                                <li>
+                    <h3 class="blogtitle"><span><a  title="M,R和Mongodb在存储性能上的区别" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/technology/9.asp" target="_blank" title="M,R和Mongodb在存储性能上的区别" >M,R和Mongodb在存储性能上的区别</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/technology/9.asp" target="_blank" title="M,R和Mongodb在存储性能上的区别">                             <i><img alt="M,R和Mongodb在存储性能上的区别" title="M,R和Mongodb在存储性能上的区别" src="other/640?wx_fmt=jpeg"  /></i> </a></span>
+                        <p style="text-indent:2em;">MemcachedMemcached的优点：1：Memcached可以利用多核优势，单实例吞吐量极高，可以达到几十万QPS（取决于key、value的字节大小以及服务器硬件性能，日常环境中QPS高峰大约在4-6w左右）。适用于最大程...</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-07-14 06:05:39</span><span class="viewnum f_l">浏览（<a href="/">2641</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/technology/9.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                                <li>
+                    <h3 class="blogtitle"><span><a  title="php 文件的分割与合并" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/technology/8.asp" target="_blank" title="php 文件的分割与合并" >php 文件的分割与合并</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/technology/8.asp" target="_blank" title="php 文件的分割与合并">                             <i><img alt="php 文件的分割与合并" title="php 文件的分割与合并" src="images/506b49.jpg"  /></i> </a></span>
+                        <p style="text-indent:2em;">/**
+
+&nbsp;*&nbsp;文件的分割
+
+&nbsp;*&nbsp;@param&nbsp;string&nbsp;$filename&nbsp;文件名
+
+&nbsp;*&nbsp;@param&nbsp;int&nbsp;...</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-07-14 04:13:26</span><span class="viewnum f_l">浏览（<a href="/">1444</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/technology/8.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                            </ul>
+            <h2 class="hometitle" style="margin: 5px 0px 5px 0px;">美文欣赏 <a  class="more" style="float:right;color:#096;" href="/article.asp" title="文章，散文">查看更多</a></h2>
+            <ul>
+                                <li>
+                    <h3 class="blogtitle"><span><a   title="一日亦四季，四季亦人生" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/article/210.asp" target="_blank" title="一日亦四季，四季亦人生" >一日亦四季，四季亦人生</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/article/210.asp" target="_blank" title="一日亦四季，四季亦人生"> <img alt="一日亦四季，四季亦人生" title="一日亦四季，四季亦人生" src="images/14.png" ></a></span>
+                        <p style="text-indent:2em;">若说如，好似太虚幻，太缥缈。不如将一日比作四季，让四季幻化成人生的缩影，人生总会有“雾失楼台，月迷津渡”之彷徨，有“池塘生草，园柳变鸣禽”之清新，有“纷纷红紫已成尘，布谷声中令新”之喜悦，有“古藤老树昏鸦，小流水人家”之落寞，有“天...</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-09-26 23:58:06</span><span class="viewnum f_l">浏览（<a href="/">33</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/article/210.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                                <li>
+                    <h3 class="blogtitle"><span><a   title="秋，灵魂里的醇香" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/article/209.asp" target="_blank" title="秋，灵魂里的醇香" >秋，灵魂里的醇香</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/article/209.asp" target="_blank" title="秋，灵魂里的醇香"> <img alt="秋，灵魂里的醇香" title="秋，灵魂里的醇香" src="images/4.png" ></a></span>
+                        <p style="text-indent:2em;">秋，用一种低调诠释着，不奢华、不艳丽，却有一种无法企及的深邃，淡淡散发着醇香。一路风尘，一路沧桑，静静地沉思，的况味，一叶知秋的美丽。九月的天最是舒怡，儿啾叽，清新，田园一派丰收的景象。即便是天，也是温润而明澈的。雨后的湖水滟涟着波...</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-09-25 11:40:03</span><span class="viewnum f_l">浏览（<a href="/">36</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/article/209.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                                <li>
+                    <h3 class="blogtitle"><span><a   title="年年若许醉花间" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/article/205.asp" target="_blank" title="年年若许醉花间" >年年若许醉花间</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/article/205.asp" target="_blank" title="年年若许醉花间"> <img alt="年年若许醉花间" title="年年若许醉花间" src="images/12.png" ></a></span>
+                        <p style="text-indent:2em;">&nbsp;我伫立在路边，的主人吩咐我唱着一支新年的歌。行走的人们尽情享受着的，日的新绿绽放着的笑容。当欢笑之后，低垂着双目，默然着那些我渴望看见属于我的眷恋。后的阳光憨态可掬，我不再于黑的悲欢，所有的所有都在黑暗中匿迹，而这天地间...</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-09-24 03:55:05</span><span class="viewnum f_l">浏览（<a href="/">41</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/article/205.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                                <li>
+                    <h3 class="blogtitle"><span><a   title="爱，是染指一缕月光的念" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/article/204.asp" target="_blank" title="爱，是染指一缕月光的念" >爱，是染指一缕月光的念</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/article/204.asp" target="_blank" title="爱，是染指一缕月光的念"> <img alt="爱，是染指一缕月光的念" title="爱，是染指一缕月光的念" src="images/4.png" ></a></span>
+                        <p style="text-indent:2em;">&nbsp;云淡风清的日子里，喜欢乘着一片月色落笔。我知道，你和我一样，有一腔之深、思之切的心语，盈满的彼岸 。我把旧日余欢，折成一首想你的诗卷，在眉弯下轻轻舒展。将花前月下的光阴，叠成一笺永不褪色的心念。一别经年，不管初遇还是重见...</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-09-23 23:26:27</span><span class="viewnum f_l">浏览（<a href="/">34</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/article/204.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                                <li>
+                    <h3 class="blogtitle"><span><a   title="简单着，本原绽放" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/article/202.asp" target="_blank" title="简单着，本原绽放" >简单着，本原绽放</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/article/202.asp" target="_blank" title="简单着，本原绽放"> <img alt="简单着，本原绽放" title="简单着，本原绽放" src="images/8.png" ></a></span>
+                        <p style="text-indent:2em;">平平凡凡就是真，简简单单就是福。看似通俗易懂的一句话，内涵着很多真理。大道理我们都懂，一套套，却劝说不了。人的欲望，永无休止，好了再好，多了还要多。没有尽头的需求，总在负重前行中，于是有了“贪婪洞窟”，无底的“深渊”。陷入欲望，无法...</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-09-19 21:49:13</span><span class="viewnum f_l">浏览（<a href="/">744</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/article/202.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                                <li>
+                    <h3 class="blogtitle"><span><a   title="所有的过往都将温柔以待" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/article/199.asp" target="_blank" title="所有的过往都将温柔以待" >所有的过往都将温柔以待</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/article/199.asp" target="_blank" title="所有的过往都将温柔以待"> <img alt="所有的过往都将温柔以待" title="所有的过往都将温柔以待" src="images/1.png" ></a></span>
+                        <p style="text-indent:2em;">醒了还会再来，历史的厚重让人浮浮沉沉。在里宣泄着疲惫的，早已无处可逃。石蕊里透着的裂痕，北风呼啸着的日子，是谁在日下里等候着黎明的到来？是谁在敲打着故乡的旧窗？一颗心在跳动，一种思恋永远在心上。往日的旧事浮上心头，涌动的思绪又上闲愁...</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-09-18 21:40:44</span><span class="viewnum f_l">浏览（<a href="/">395</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/article/199.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                                <li>
+                    <h3 class="blogtitle"><span><a   title="走近秋染飘絮的诗韵" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/article/196.asp" target="_blank" title="走近秋染飘絮的诗韵" >走近秋染飘絮的诗韵</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/article/196.asp" target="_blank" title="走近秋染飘絮的诗韵"> <img alt="走近秋染飘絮的诗韵" title="走近秋染飘絮的诗韵" src="images/5.png" ></a></span>
+                        <p style="text-indent:2em;">秋风轻柔，染着诗意，细夹着花絮悠然飘缀，轻轻地落满青石板，这秋染花絮的飘香凝满了姑娘的肩头，让我无法用来表达……在秋韵流淌着的里，总有一些个诗情画意让我，光阴荏苒，四季轮回，往事如烟，在清风中留下了诗韵的风情，装点着我生命中最美丽的...</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-09-15 22:08:59</span><span class="viewnum f_l">浏览（<a href="/">678</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/article/196.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                                <li>
+                    <h3 class="blogtitle"><span><a   title="懂得世间无常，欣喜拥抱人生" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/article/195.asp" target="_blank" title="懂得世间无常，欣喜拥抱人生" >懂得世间无常，欣喜拥抱人生</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/article/195.asp" target="_blank" title="懂得世间无常，欣喜拥抱人生"> <img alt="懂得世间无常，欣喜拥抱人生" title="懂得世间无常，欣喜拥抱人生" src="images/5.png" ></a></span>
+                        <p style="text-indent:2em;">我们不知道下一秒会发生什么。不知道明天，后天会发生什么。即使知道，明天，后天我们的日子还是一样的，但是，我们的心境不同，容貌不同，不同，因而，每天都是不同的。因为不同，我们才会变得平和，有所期待。你也会发现，每天都有意外。因为这些意...</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-09-12 22:06:36</span><span class="viewnum f_l">浏览（<a href="/">382</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/article/195.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                                <li>
+                    <h3 class="blogtitle"><span><a   title="愿所有的美好如约而来" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/article/191.asp" target="_blank" title="愿所有的美好如约而来" >愿所有的美好如约而来</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/article/191.asp" target="_blank" title="愿所有的美好如约而来"> <img alt="愿所有的美好如约而来" title="愿所有的美好如约而来" src="images/15.png" ></a></span>
+                        <p style="text-indent:2em;">总是如一泓清水，兀自静静流淌，奔向远方，不能挽留，也无法挽留。总有一天你会明白，有些人不用说再见，已经再也不见；有些情，无论你多么珍惜，都会在不知不觉中成了淡淡的，留下一抹的伤，挂在的墙。站在的渡口，推开九月的门扉悄然而入，退却八月...</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-09-09 23:59:01</span><span class="viewnum f_l">浏览（<a href="/">760</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/article/191.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                                <li>
+                    <h3 class="blogtitle"><span><a   title="花一开满就相爱" target="_blank"  class="classname">文章阅读</a></span><a href="http://zb.jii6.com/detail/article/190.asp" target="_blank" title="花一开满就相爱" >花一开满就相爱</a>
+                    </h3>
+                    <div class="bloginfo"><span class="blogpic"><a href="http://zb.jii6.com/detail/article/190.asp" target="_blank" title="花一开满就相爱"> <img alt="花一开满就相爱" title="花一开满就相爱" src="images/13.png" ></a></span>
+                        <p style="text-indent:2em;">题记：一直喜欢白落梅那句话，世间所有的相遇，都是久别重逢。那茫茫人海中又是谁让我们在这里相聚，静赏这八月的盛世“花开暖”？轻轻浅浅的日子里，相逢是一种。若缘分是开在尘埃里细碎的小花，那相遇便是花朵上晶莹的露珠。因为有了她的馨香，这天...</p>
+                    </div>
+                    <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-09-09 23:48:56</span><span class="viewnum f_l">浏览（<a href="/">719</a>）</span><span class="f_r"><a href="http://zb.jii6.com/detail/article/190.asp" target="_blank" class="more">阅读原文>></a></span></div>
+                    <div class="line"></div>
+                </li>
+                            </ul>
+        </div>
+        <div class="rbox">
+            <div class="paihang">
+                <h2 class="hometitle">今日头条</h2>
+                <ul>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/142.asp" target="_blank" title="香港居民微信买票">
+            香港居民微信买票            </a></b>
+                        <p style="text-indent:2em;">9月26日，腾讯携手银联在腾讯滨海大厦举行“移动支付，畅享两地”双向跨境支付启动仪式。在中国人民银行及香港金融管...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/141.asp" target="_blank" title="圆通速递宣布涨价">
+            圆通速递宣布涨价            </a></b>
+                        <p style="text-indent:2em;">继中通和韵达之后，圆通速递公司今天宣布，将对全国各网点到达上海地区的快件派送费上调，上调幅度为0.5元/票。圆通...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/140.asp" target="_blank" title="地铁广告吓哭孩子">
+            地铁广告吓哭孩子            </a></b>
+                        <p style="text-indent:2em;">（原标题：西安地铁3号线广告“吓哭孩子” 工商部门：要求立即整改）据西部网9月20日报道，地铁快捷方便，是大家出...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/139.asp" target="_blank" title="女司机开车顶小学生">
+            女司机开车顶小学生            </a></b>
+                        <p style="text-indent:2em;">　　原标题：司机开车顶行小学生：被罚，公开道歉　　9月19日报道，18日，山东菏泽一学校门口，天正下着雨，一辆轿...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/138.asp" target="_blank" title="高铁盒饭停止使用">
+            高铁盒饭停止使用            </a></b>
+                        <p style="text-indent:2em;">本月初，媒体报道了“北京开往武汉高铁供应盒饭发霉”一事，并引发广泛关注。国务院督查组对此高度重视。连日来，国务院...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/137.asp" target="_blank" title="瘦弱妹子徒手扒轮胎成网红">
+            瘦弱妹子徒手扒轮胎成网红            </a></b>
+                        <p style="text-indent:2em;">徒手掀起百余斤重的轮胎、动作娴熟的扒着轮毂、因为力量不够，要站在轮胎上靠着自己的重量才能完成...这位身形清瘦的...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/136.asp" target="_blank" title="女生众筹万元成都读大学">
+            女生众筹万元成都读大学            </a></b>
+                        <p style="text-indent:2em;">原标题：广东女生众筹万元成都读大学　　“不管前方的路有多苦，只要走的方向是正确的，都比站在原地更幸福。”18岁广...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/135.asp" target="_blank" title="最适合秋天喝的清汤，各种功能都有!">
+            最适合秋天喝的清汤，各种功能都有!            </a></b>
+                        <p style="text-indent:2em;">原标题：最适合秋天喝的清汤，各种功能都有！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/134.asp" target="_blank" title="武汉大学 小白狐">
+            武汉大学 小白狐            </a></b>
+                        <p style="text-indent:2em;">这几天，一只通体长着雪白毛发的狐狸，出现在武汉大学校园内的珞珈山上。它时常优雅地在林荫小道上漫步，仙气十足，引得...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/133.asp" target="_blank" title="大学生空手到排名">
+            大学生空手到排名            </a></b>
+                        <p style="text-indent:2em;">中商情报网讯：开学季高校快递扎堆,犹如双十一大促之后。第一批00后已经上大学了，与学长们不同的是，他们一身轻松入...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/132.asp" target="_blank" title="这个姑娘的辞职信火了 ">
+            这个姑娘的辞职信火了             </a></b>
+                        <p style="text-indent:2em;">				　　原标题：杭州姑娘的这封辞职信火了！裸辞的7条理由，条条扎心。。。　　昨天，　　杭州萧山一姑娘在萧内网...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/131.asp" target="_blank" title="500强名单发布，最赚钱的公司竟然是...">
+            500强名单发布，最赚钱的公司竟然是...            </a></b>
+                        <p style="text-indent:2em;">2018中国企业500强名单发布，最赚钱的公司竟然是...9月2日，在2018中国500强企业高峰论坛上，中国企...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/130.asp" target="_blank" title="高中食堂学生站着吃饭">
+            高中食堂学生站着吃饭            </a></b>
+                        <p style="text-indent:2em;">				　　原标题：河南睢县高中食堂撤板凳让学生站着吃饭 校方：节约时间，提高就餐效率&nbsp;&nbsp;&...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/129.asp" target="_blank" title="大一新生猥亵女乘客">
+            大一新生猥亵女乘客            </a></b>
+                        <p style="text-indent:2em;">				　　大一新生列车上猥亵下铺女乘客：原因竟然是看到腹部冲动了　　8月17日在上海开往太原的k372次列车的...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/128.asp" target="_blank" title="8旬老太总收暧昧短信">
+            8旬老太总收暧昧短信            </a></b>
+                        <p style="text-indent:2em;">（原标题：老太报警称总收暧昧短信，民警一看差点笑翻！网友:有故事！）南京警方近日接到一名88岁老奶奶的求助老人家...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/127.asp" target="_blank" title="阿里164亿奖励员工">
+            阿里164亿奖励员工            </a></b>
+                        <p style="text-indent:2em;">昨日晚间阿里发布2019财年第一财季（2018年4月1日-6月30日），该季度收入809.2亿元，同比增长61%...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/126.asp" target="_blank" title="9岁女孩沉迷抖音">
+            9岁女孩沉迷抖音            </a></b>
+                        <p style="text-indent:2em;">西安兵马俑在线8月23日讯 &nbsp;9岁女孩浓妆艳抹录“抖音”，为增粉无所不用其极，家长抱怨却遭网友集体打脸...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/125.asp" target="_blank" title="男子砸车究竟怎么回事?背后原因及详情震惊了">
+            男子砸车究竟怎么回事?背后原因及详情震惊了            </a></b>
+                        <p style="text-indent:2em;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;韶关一名失业两年...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/124.asp" target="_blank" title="女孩为结婚竟然做出这样的事">
+            女孩为结婚竟然做出这样的事            </a></b>
+                        <p style="text-indent:2em;">（原标题：为和男友结婚，这个女孩状告亲生父母！网友炸了……）因为不喜欢女儿选的女婿，佛山禅城一对父母，拒绝提供户...</p>
+                    </li>
+                                        <li>
+                        <b><a href="http://zb.jii6.com/detail/toutiao/123.asp" target="_blank" title="女孩减肥剩50斤">
+            女孩减肥剩50斤            </a></b>
+                        <p style="text-indent:2em;">原标题:21岁女孩自杀式减肥只剩50斤，照片不忍直视……长久昏迷，突然苏醒，忘记了很多从前的记忆。这种在影视剧才...</p>
+                    </li>
+                                    </ul>
+            </div>
+            <!-- <div class="paihang">
+                <h2 class="hometitle">其他文章</h2>
+                <ul>
+                                        <li><b><a href="http://zb.jii6.com/http://zb.jii6.com/detail/technology/13.html" target="_blank" title="高并发请求的缓存设计策略">高并发请求的缓存设计策略</a></b>
+                        <p style="text-indent:2em;">
+                                                        <i><img alt="高并发请求的缓存设计策略" title="高并发请求的缓存设计策略" src="images/506b49.jpg"  /></i>  1.为何需要缓存？在高并发请求时，为何我们频繁提到缓存技术？最直接的原因是，目前磁盘IO和网络IO相对于内存IO...
+                        </p>
+                    </li>
+                                        <li><b><a href="http://zb.jii6.com/http://zb.jii6.com/detail/technology/12.html" target="_blank" title="PHP环境安全加固方案">PHP环境安全加固方案</a></b>
+                        <p style="text-indent:2em;">
+                                                        <i><img alt="PHP环境安全加固方案" title="PHP环境安全加固方案" src="images/506b49.jpg"  /></i>  PHP应用部署后，开发者或者运维人员应该时刻关注PHP方面的漏洞消息，升级PHP版本，对PHP环境进行安全加固。...
+                        </p>
+                    </li>
+                                        <li><b><a href="http://zb.jii6.com/http://zb.jii6.com/detail/technology/11.html" target="_blank" title="jQuery实现的全选反选">jQuery实现的全选反选</a></b>
+                        <p style="text-indent:2em;">
+                                                        <i><img alt="jQuery实现的全选反选" title="jQuery实现的全选反选" src="images/506b49.jpg"  /></i>  本文给大家分享一段基于jQuery的全选、反选和不选功能的代码，适用于网页多选后需要进行批量操作的场景（如批量删...
+                        </p>
+                    </li>
+                                        <li><b><a href="http://zb.jii6.com/http://zb.jii6.com/detail/technology/10.html" target="_blank" title="网站关键词怎么优化">网站关键词怎么优化</a></b>
+                        <p style="text-indent:2em;">
+                                                        <i><img alt="网站关键词怎么优化" title="网站关键词怎么优化" src="images/20180730183126.png"  /></i>  &nbsp; &nbsp; &nbsp; 北京恒泰物华企业网站。从4月初恢复降权以来，百度一下子就把以前的排名变...
+                        </p>
+                    </li>
+                                        <li><b><a href="http://zb.jii6.com/http://zb.jii6.com/detail/technology/9.html" target="_blank" title="M,R和Mongodb在存储性能上的区别">M,R和Mongodb在存储性能上的区别</a></b>
+                        <p style="text-indent:2em;">
+                                                        <i><img alt="M,R和Mongodb在存储性能上的区别" title="M,R和Mongodb在存储性能上的区别" src="other/640?wx_fmt=jpeg"  /></i>  MemcachedMemcached的优点：1：Memcached可以利用多核优势，单实例吞吐量极高，可以达到几...
+                        </p>
+                    </li>
+                                        <li><b><a href="http://zb.jii6.com/http://zb.jii6.com/detail/technology/8.html" target="_blank" title="php 文件的分割与合并">php 文件的分割与合并</a></b>
+                        <p style="text-indent:2em;">
+                                                        <i><img alt="php 文件的分割与合并" title="php 文件的分割与合并" src="images/506b49.jpg"  /></i>  /**
+
+&nbsp;*&nbsp;文件的分割
+
+&nbsp;*&nbsp;@param&nbsp;string...
+                        </p>
+                    </li>
+                                    </ul>
+            </div> -->
+            <div class="paihang">
+                <h2 class="hometitle">最新笑话 <a  class="more" style="float:right;color:#096;" href="/jock.html" title="笑话，开心一刻">查看更多</a></h2>
+                <ul>
+                    <ul>
+                                                <li>
+                            <b><a href="http://zb.jii6.com/detail/jock/130.asp" target="_blank" title="荒诞幽默,心都够大的!">
+                                  荒诞幽默,心都够大的!                              </a>
+                            </b>
+                            <p style="text-indent:2em;">1、我一个同学喝高了，趁着酒劲给暗恋许久的女神表白，结果果然凑效，女神爽...</p>
+                        </li>
+                                                <li>
+                            <b><a href="http://zb.jii6.com/detail/jock/129.asp" target="_blank" title="爆囧,雷的人瞠目结舌!">
+                                  爆囧,雷的人瞠目结舌!                              </a>
+                            </b>
+                            <p style="text-indent:2em;">1、一对年轻男女公交车上激吻半小时，乘客们实在看不下去了，纷纷上前指责：...</p>
+                        </li>
+                                                <li>
+                            <b><a href="http://zb.jii6.com/detail/jock/128.asp" target="_blank" title="讽刺与挖苦的精选逗段">
+                                  讽刺与挖苦的精选逗段                              </a>
+                            </b>
+                            <p style="text-indent:2em;">1、别看胖子们平时害怕露肉暴露自己，称体重时可是脱得精光呢，能少一两是一...</p>
+                        </li>
+                                            </ul>
+                </ul>
+            </div>
+            <div class="links">
+                <h2 class="hometitle">友情链接</h2>
+                <ul>
+                                        <li><a target="_blank" href="http://www.wentao.group?&tn=http://zb.jii6.com/" title="竹泊博客">竹泊博客</a></li>
+                                        <li><a target="_blank" href="http://www.yangqq.com?&tn=http://zb.jii6.com/" title="杨青博客">杨青博客</a></li>
+                                        <li><a target="_blank" href="http://www.yangruolan.com?&tn=http://zb.jii6.com/" title="若岚博客">若岚博客</a></li>
+                                        <li><a target="_blank" href="http://www.lovey9.com?&tn=http://zb.jii6.com/" title="葛优博客">葛优博客</a></li>
+                                        <li><a target="_blank" href="http://www.ccava.net?&tn=http://zb.jii6.com/" title="漫步白月光">漫步白月光</a></li>
+                                        <li><a target="_blank" href="http://blog.jues.org.cn/?&tn=http://zb.jii6.com/" title="jues博客">jues博客</a></li>
+                                        <li><a target="_blank" href="http://www.xsuchen.com?&tn=http://zb.jii6.com/" title="苏晨博客">苏晨博客</a></li>
+                                        <li><a target="_blank" href="http://www.zbpnice.cn?&tn=http://zb.jii6.com/" title="柏平博客">柏平博客</a></li>
+                                        <li><a target="_blank" href="https://www.wangzhijun.com.cn?&tn=http://zb.jii6.com/" title="王志军博客">王志军博客</a></li>
+                                        <li><a target="_blank" href="https://www.otaozi.com?&tn=http://zb.jii6.com/" title="刘锁博客">刘锁博客</a></li>
+                                        <li><a target="_blank" href="https://www.xiaoluoweb.com?&tn=http://zb.jii6.com/" title="小罗博客">小罗博客</a></li>
+                                        <li><a target="_blank" href="https://www.shimaisui.com?&tn=http://zb.jii6.com/" title="腾讯云">腾讯云</a></li>
+                                        <li><a target="_blank" href="https://www.baidu.com?&tn=http://zb.jii6.com/" title="百度">百度</a></li>
+                                        <li><a target="_blank" href="/links.asp" style="color:red;">申请</a></li>
+                </ul>
+            </div>
+            <div class="weixin">
+                <h2 class="hometitle">官方微信</h2>
+                <ul>
+                    <img alt="微信" title="扫码，关注微信" style="margin: auto;width:62%;" src="images/wx.jpg">
+                </ul>
+            </div>
+        </div>
+    </article>
+    <footer>
+        <p>免责声明：若本站收录的资源侵犯了您的权益，请联系本站及时删除其内容。Design by <a href="http://zb.jii6.com//zhubo"  title="竹泊个人主页">竹泊</a>  &nbsp;<a>粤ICP备1200520号-1</a>&nbsp; <a href="http://zb.jii6.com/" title="竹泊个人博客">竹泊个人博客</a> </p>
+    </footer>
+    <script src="http://zb.jii6.com/public/static/main/js/lyz.delayLoading.min.js"></script>
+    <script src="js/comm.js"></script>
+    <div style="height:0px;width:0px;">
+        <iframe src="http://zb.jii6.com/music.asp" frameborder="0" scrolling="no" width="0" height="0"></iframe>
+    </div>
 </body>
+<script>
+$(function() {
+    $('#myban').easyFader();
+});
+$(window).bind("scroll", function(){ 
+    var top = $(this).scrollTop();
+	if(top>1){$('.alert').hide();}else{$('.alert').show();}	
+});
+</script>
 </html>
